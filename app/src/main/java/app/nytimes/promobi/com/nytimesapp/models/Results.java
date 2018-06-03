@@ -1,6 +1,9 @@
 package app.nytimes.promobi.com.nytimesapp.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Results {
+    @SerializedName("abstract")
     private String absString;
 
     private String created_date;
