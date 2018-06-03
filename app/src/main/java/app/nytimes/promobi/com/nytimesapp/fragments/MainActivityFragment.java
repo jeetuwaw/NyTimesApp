@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.List;
@@ -25,6 +26,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class MainActivityFragment extends Fragment {
 
+    private Button getButton;
+
     public MainActivityFragment() {
     }
 
@@ -37,8 +40,13 @@ public class MainActivityFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
-        performCall();
+        getButton = getActivity().findViewById(R.id.button);
+        getButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                performCall();
+            }
+        });
     }
 
     private void performCall() {
@@ -50,37 +58,32 @@ public class MainActivityFragment extends Fragment {
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create()) //Here we are using the GsonConverterFactory to directly convert json data to object
                 .build();
-
         //creating the api interface
         Api api = retrofit.create(Api.class);
 
         //now making the call object
         //Here we are using the api method that we created inside the api interface
-        Call<List<Home>> call = api.getHomeData(Utils.API_KEY);
+        Call<Home> call = api.getHomeData();
 
         //then finallly we are making the call using enqueue()
         //it takes callback interface as an argument
         //and callback is having two methods onRespnose() and onFailure
         //if the request is successfull we will get the correct response and onResponse will be executed
         //if there is some error we will get inside the onFailure() method
-        call.enqueue(new Callback<List<Home>>() {
+        call.enqueue(new Callback<Home>() {
             @Override
-            public void onResponse(Call<List<Home>> call, Response<List<Home>> response) {
+            public void onResponse(Call<Home> call, Response<Home> response) {
 
                 //In this point we got our hero list
                 //thats damn easy right ;)
-                List<Home> heroList = response.body();
+                Home home = response.body();
 
-                for (Home home : heroList) {
-                    Log.d("Logger2==", home.toString());
-
-                }
                 //now we can do whatever we want with this list
 
             }
 
             @Override
-            public void onFailure(Call<List<Home>> call, Throwable t) {
+            public void onFailure(Call<Home> call, Throwable t) {
                 Toast.makeText(getActivity().getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
