@@ -1,6 +1,9 @@
 package app.nytimes.promobi.com.nytimesapp.models;
 
-public class Multimedia {
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+
+public class Multimedia extends BaseObservable{
     private String height;
 
     private String subtype;
@@ -17,6 +20,7 @@ public class Multimedia {
 
     private String url;
 
+    @Bindable
     public String getHeight() {
         return height;
     }
@@ -25,6 +29,7 @@ public class Multimedia {
         this.height = height;
     }
 
+    @Bindable
     public String getSubtype() {
         return subtype;
     }
@@ -33,6 +38,7 @@ public class Multimedia {
         this.subtype = subtype;
     }
 
+    @Bindable
     public String getWidth() {
         return width;
     }
@@ -41,6 +47,7 @@ public class Multimedia {
         this.width = width;
     }
 
+    @Bindable
     public String getCaption() {
         return caption;
     }
@@ -49,6 +56,7 @@ public class Multimedia {
         this.caption = caption;
     }
 
+    @Bindable
     public String getCopyright() {
         return copyright;
     }
@@ -57,6 +65,7 @@ public class Multimedia {
         this.copyright = copyright;
     }
 
+    @Bindable
     public String getFormat() {
         return format;
     }
@@ -65,6 +74,7 @@ public class Multimedia {
         this.format = format;
     }
 
+    @Bindable
     public String getType() {
         return type;
     }
@@ -73,6 +83,7 @@ public class Multimedia {
         this.type = type;
     }
 
+    @Bindable
     public String getUrl() {
         return url;
     }
@@ -83,6 +94,6 @@ public class Multimedia {
 
     @Override
     public String toString() {
-        return "ClassPojo [height = " + height + ", subtype = " + subtype + ", width = " + width + ", caption = " + caption + ", copyright = " + copyright + ", format = " + format + ", type = " + type + ", url = " + url + "]";
+        return "ClassPojo [height = " + getHeight() + ", subtype = " + getSubtype() + ", width = " + getWidth() + ", caption = " + getCaption() + ", copyright = " + getCopyright() + ", format = " + getFormat() + ", type = " + getType() + ", url = " + getUrl() + "]";
     }
 }

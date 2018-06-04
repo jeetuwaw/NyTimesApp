@@ -63,6 +63,6 @@ public class Opinion {
 
     @Override
     public String toString() {
-        return "ClassPojo [results = " + results + ", status = " + status + ", num_results = " + num_results + ", last_updated = " + last_updated + ", copyright = " + copyright + ", section = " + section + "]";
+        return "ClassPojo [results = " + getResults() + ", status = " + getStatus() + ", num_results = " + getNum_results() + ", last_updated = " + getLast_updated() + ", copyright = " + getCopyright() + ", section = " + getSection() + "]";
     }
 }

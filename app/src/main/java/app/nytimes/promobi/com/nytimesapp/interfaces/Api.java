@@ -19,15 +19,15 @@ public interface Api {
 
     @Headers("api-key:" + Utils.API_KEY)
     @GET("national.json")
-    Call<National> getNationalData();
+    Call<Home> getNationalData();
 
     @Headers("api-key:" + Utils.API_KEY)
     @GET("opinion.json")
-    Call<Opinion> getOpinionData();
+    Call<Home> getOpinionData();
 
     @Headers("api-key:" + Utils.API_KEY)
     @GET("world.json")
-    Call<World> getWorldData();
+    Call<Home> getWorldData();
 
 
 }
