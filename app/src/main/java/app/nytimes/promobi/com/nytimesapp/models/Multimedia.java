@@ -1,9 +1,6 @@
 package app.nytimes.promobi.com.nytimesapp.models;
 
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
-
-public class Multimedia extends BaseObservable{
+public class Multimedia {
     private String height;
 
     private String subtype;
@@ -20,7 +17,6 @@ public class Multimedia extends BaseObservable{
 
     private String url;
 
-    @Bindable
     public String getHeight() {
         return height;
     }
@@ -29,7 +25,6 @@ public class Multimedia extends BaseObservable{
         this.height = height;
     }
 
-    @Bindable
     public String getSubtype() {
         return subtype;
     }
@@ -38,7 +33,6 @@ public class Multimedia extends BaseObservable{
         this.subtype = subtype;
     }
 
-    @Bindable
     public String getWidth() {
         return width;
     }
@@ -47,7 +41,6 @@ public class Multimedia extends BaseObservable{
         this.width = width;
     }
 
-    @Bindable
     public String getCaption() {
         return caption;
     }
@@ -56,7 +49,6 @@ public class Multimedia extends BaseObservable{
         this.caption = caption;
     }
 
-    @Bindable
     public String getCopyright() {
         return copyright;
     }
@@ -65,7 +57,6 @@ public class Multimedia extends BaseObservable{
         this.copyright = copyright;
     }
 
-    @Bindable
     public String getFormat() {
         return format;
     }
@@ -74,7 +65,6 @@ public class Multimedia extends BaseObservable{
         this.format = format;
     }
 
-    @Bindable
     public String getType() {
         return type;
     }
@@ -83,7 +73,6 @@ public class Multimedia extends BaseObservable{
         this.type = type;
     }
 
-    @Bindable
     public String getUrl() {
         return url;
     }

@@ -1,11 +1,9 @@
 package app.nytimes.promobi.com.nytimesapp.models;
 
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Results extends BaseObservable {
+public class Results  {
     @SerializedName("abstract")
     private String absString;
 
@@ -51,7 +49,6 @@ public class Results extends BaseObservable {
         this.absString = absString;
     }
 
-    @Bindable
     public String getCreated_date() {
         return created_date;
     }
@@ -60,7 +57,6 @@ public class Results extends BaseObservable {
         this.created_date = created_date;
     }
 
-    @Bindable
     public String getPublished_date() {
         return published_date;
     }
@@ -69,7 +65,6 @@ public class Results extends BaseObservable {
         this.published_date = published_date;
     }
 
-    @Bindable
     public String[] getGeo_facet() {
         return geo_facet;
     }
@@ -78,7 +73,6 @@ public class Results extends BaseObservable {
         this.geo_facet = geo_facet;
     }
 
-    @Bindable
     public String[] getPer_facet() {
         return per_facet;
     }
@@ -87,7 +81,6 @@ public class Results extends BaseObservable {
         this.per_facet = per_facet;
     }
 
-    @Bindable
     public String getSubsection() {
         return subsection;
     }
@@ -96,7 +89,6 @@ public class Results extends BaseObservable {
         this.subsection = subsection;
     }
 
-    @Bindable
     public String getKicker() {
         return kicker;
     }
@@ -105,7 +97,6 @@ public class Results extends BaseObservable {
         this.kicker = kicker;
     }
 
-    @Bindable
     public String getSection() {
         return section;
     }
@@ -114,7 +105,6 @@ public class Results extends BaseObservable {
         this.section = section;
     }
 
-    @Bindable
     public String getUrl() {
         return url;
     }
@@ -123,7 +113,6 @@ public class Results extends BaseObservable {
         this.url = url;
     }
 
-    @Bindable
     public String[] getDes_facet() {
         return des_facet;
     }
@@ -132,7 +121,6 @@ public class Results extends BaseObservable {
         this.des_facet = des_facet;
     }
 
-    @Bindable
     public String getTitle() {
         return title;
     }
@@ -141,7 +129,6 @@ public class Results extends BaseObservable {
         this.title = title;
     }
 
-    @Bindable
     public Multimedia[] getMultimedia() {
         return multimedia;
     }
@@ -150,7 +137,6 @@ public class Results extends BaseObservable {
         this.multimedia = multimedia;
     }
 
-    @Bindable
     public String getByline() {
         return byline;
     }
@@ -159,7 +145,6 @@ public class Results extends BaseObservable {
         this.byline = byline;
     }
 
-    @Bindable
     public String getUpdated_date() {
         return updated_date;
     }
@@ -168,7 +153,6 @@ public class Results extends BaseObservable {
         this.updated_date = updated_date;
     }
 
-    @Bindable
     public String getShort_url() {
         return short_url;
     }
@@ -177,7 +161,6 @@ public class Results extends BaseObservable {
         this.short_url = short_url;
     }
 
-    @Bindable
     public String[] getOrg_facet() {
         return org_facet;
     }
@@ -186,7 +169,6 @@ public class Results extends BaseObservable {
         this.org_facet = org_facet;
     }
 
-    @Bindable
     public String getItem_type() {
         return item_type;
     }
@@ -195,7 +177,6 @@ public class Results extends BaseObservable {
         this.item_type = item_type;
     }
 
-    @Bindable
     public String getMaterial_type_facet() {
         return material_type_facet;
     }

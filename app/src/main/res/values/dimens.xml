@@ -1,3 +1,6 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="row_text">20sp</dimen>
+    <dimen name="row_item_margin">20dp</dimen>
+    <dimen name="row_item_margin_internal">150dp</dimen>
 </resources>

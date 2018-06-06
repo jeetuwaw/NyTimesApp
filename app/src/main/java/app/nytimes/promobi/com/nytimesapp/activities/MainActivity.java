@@ -1,34 +1,50 @@
 package app.nytimes.promobi.com.nytimesapp.activities;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.RelativeLayout;
 
-import javax.inject.Inject;
+import org.greenrobot.eventbus.Subscribe;
 
 import app.nytimes.promobi.com.nytimesapp.R;
-import app.nytimes.promobi.com.nytimesapp.application.NyTimesApplication;
+import app.nytimes.promobi.com.nytimesapp.eventsbus.Events;
+import app.nytimes.promobi.com.nytimesapp.eventsbus.GlobalBus;
+import app.nytimes.promobi.com.nytimesapp.eventsbus.OnBackPressedEvent;
 import app.nytimes.promobi.com.nytimesapp.fragments.MainActivityFragment;
-import retrofit2.Retrofit;
 
 
 public class MainActivity extends Activity {
 
-    @Inject
-    Retrofit retrofit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ((NyTimesApplication) getApplication()) .getNetComponent().inject(this);
+        replaceFragment(getFragmentManager(), new MainActivityFragment(), false);
+    }
+
+    public void replaceFragment(FragmentManager fragmentManager, Fragment fragment, boolean addToBackStack) {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment, fragment);
+        if (addToBackStack) {
+            fragmentTransaction.addToBackStack(null);
+        }
+        fragmentTransaction.commit();
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        ((MainActivityFragment)getFragmentManager().findFragmentById(R.id.fragment)).performCall(retrofit);
+    protected void onStart() {
+        super.onStart();
+        GlobalBus.getBus().register(this);
+    }
+
+    @Subscribe
+    public void getMessage(Events.FragmentActivityMessage fragmentActivityMessage) {
+
     }
 
     @Override
@@ -47,10 +63,20 @@ public class MainActivity extends Activity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            ((MainActivityFragment)getFragmentManager().findFragmentById(R.id.fragment)).performCall(retrofit);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        GlobalBus.getBus().unregister(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        GlobalBus.getBus().post(new OnBackPressedEvent());
     }
 }
